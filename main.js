@@ -4,22 +4,24 @@ $(document).ready(function(){
 		$('form').slidown();
 	})
 
-	$('botão-cancelar').click(function(){
+	$('#botao-cancelar').click(function(){
 		$('form').slideup();
 	})
 
-	$('form').on('submit', function(e){
+	$('form').on('submit',function(e){
 		e.preventDefault();
-		const enderecoNovaImagem =$('endereço-imagem-nova').val();
-		const novoItem = $('<li></li>');
-		$(`<img src="${enderecoNovaImagem}" />`).appendTo(novoItem);
+		const enderecoDaNovaImagem = $("#endereco-imagem-nova").val();
+		const NovoItem= $('<li style="display:none"></li>');
+		$(`<img src= "${enderecoDaNovaImagem}" />`).appendTo(NovoItem)
 		$(`
-			<div class="overlay-imagem-link">
-				<a href="${enderecoNovaImagem}" target="_blank" title= "ver imagem tamanhor real
-				</a>
-				</div>
-		`).appendTo(novoItem);
-		$(novoItem).appendTo('ul');
-		$('#enderco-nova-imagem').val("")
+		<div class="overlay-imagem-link" >
+			<a href="${enderecoDaNovaImagem}" title="Ver imagem tamanho real" target="_blank" 
+				Ver imagem em tamanho real
+			</a>
+		</div>`).appendTo(NovoItem)
+		$(NovoItem).appendTo('ul');
+		$(NovoItem).fadeIn(1000);
+		$("#endereco-imagem-nova").val('');
 	})
+
 })
